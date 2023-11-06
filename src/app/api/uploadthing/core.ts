@@ -42,6 +42,7 @@ export const ourFileRouter = {
 
         // vectorize and index entire document
 
+        
         const pineconeIndex = pinecone.Index("quill")
 
         const embeddings = new OpenAIEmbeddings({
@@ -62,6 +63,7 @@ export const ourFileRouter = {
           }
         })
       } catch (err) {
+          console.log(err)
           await db.file.update({
             data: {
               uploadStatus: "FAILED"
